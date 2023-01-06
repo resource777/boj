@@ -1,8 +1,6 @@
 a,b = map(int,input().split())
-val = min(a,b)
-x = 1
-for i in range(2,val+1):
-    if a%i == 0 and b%i == 0:
-        x = i
+x,y = max(a,b),min(a,b)
+while y!=0:
+    x,y = y,x%y
 print(x)
-print((a*b)//x)
+print(a*b//x)
