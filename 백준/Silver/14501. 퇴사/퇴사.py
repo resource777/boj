@@ -1,24 +1,9 @@
 n = int(input())
-lst = [list(map(int,input().split())) for _ in range(n)]
-ans = []
-max_val = 0
-def cal(i):
-    global max_val
-    if i==n:
-        val=0
-        ans.append((n,0,0))
-        for j in range(len(ans)-1):
-            if ans[j][0]+ans[j][1]-1>=ans[j+1][0]:
-                ans.pop()
-                return
-            val+=ans[j][2]
-        if max_val < val:
-            max_val = val
-        ans.pop()
-        return
-    ans.append((i,lst[i][0],lst[i][1]))
-    cal(i+1)
-    ans.pop()
-    cal(i+1)
-cal(0)
-print(max_val)
+lst = [list(map(int, input().split())) for _ in range(n)]
+dp = [0]*(n+1)
+for i in range(n-1, -1, -1):
+    if i + lst[i][0] > n:
+        dp[i] = dp[i+1]
+    else:
+        dp[i] = max(dp[i+1], lst[i][1] + dp[i + lst[i][0]])   
+print(dp[0])
