@@ -1,3 +1,4 @@
+-- 입양 시각 구하기(2)
 SET @hour := -1;
 
 SELECT (@hour := @hour + 1) as HOUR,
