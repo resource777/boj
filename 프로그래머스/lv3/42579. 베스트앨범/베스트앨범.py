@@ -11,9 +11,7 @@ def solution(genres, plays):
             dic[genres[i]].append([(plays[i],i)])
     for item in dic.items():
         item[1][1].sort(key = lambda x : (-x[0],x[1]))
-        #print(item[1][1])
     sorted_dict = sorted(dic.items(), key = lambda x : -x[1][0])
-    #print(sorted_dict)
     for line in sorted_dict:
         cnt=0
         for ele in line[1][1]:
