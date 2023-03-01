@@ -20,7 +20,7 @@ def union(a,b):
         p[a] = b
 for i in range(total_num):
     for j in range(i+1,total_num):
-        if g[i][j]==1:
+        if g[i][j]==1 and find(i)!=find(j):
             union(i,j)
 for i in range(1,included_num):
     if find(included_city[i])!=find(included_city[0]):
